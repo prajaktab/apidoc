@@ -14,9 +14,9 @@ export class BodyContent extends Component {
       <div style={mainBodyStyle}>
         <Switch>
           <Route exact path="/" component={HomePage}/>
-          <Route path="/gettingStartedPage" component={gettingStarted}/>
-          <Route path="/WebIntegrationPage" component={WebIntegration}/>
-          <Route path="/apisPage" component={apisPage}/>
+          <Route path="/gettingStarted" component={gettingStarted}/>
+          <Route path="/WebIntegration" component={WebIntegration}/>
+          <Route path="/apis" component={apisPage}/>
           <Route component={NotFoundPage}/>
         </Switch>
       </div>

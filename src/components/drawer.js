@@ -30,6 +30,7 @@ export class AppDrawer extends Component {
           style={{position: "relative"}}
           key={listItem.id}
           primaryText={listItem.name}
+          initiallyOpen={true}
           nestedItems={listItem.children ? self.renderListItems.call(self, listItem.children) : []}
           style={{
             backgroundColor: window.location.pathname == listItem.route ? "#eee" : ""

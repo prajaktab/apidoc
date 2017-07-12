@@ -6,7 +6,7 @@ export class  AppHeader extends Component  {
   showIconHeader = false;
   render() {
     return(
-      <AppBar exact
+      <AppBar
         title={this.props.title}
         showMenuIconButton={this.showIconHeader}
       />

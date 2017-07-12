@@ -7,12 +7,46 @@ import {
   CardTitle,
   CardText
 } from 'material-ui/Card';
-//import Data from "../../data";
+import {AppHeader} from "../header";
+import SideBar from "../sideBar";
+import Data from "../../data";
 export class onBoardingProcessPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      appHeader: "on Boarding Process"
+    }
+  }
   render() {
+    let alignmentLeft = {
+      paddingLeft: 20,
+      paddingTop: 20
+    };
     return (
       <div>
-        bjnbjb
+      <div className="main-content">
+      <div className="api-desc">
+        <AppHeader title={this.state.appHeader}/>
+        <div style={alignmentLeft}>
+          <p>Before you start integrating Jio Money wallet on your website, you should have:</p>
+          <ol>
+            {Data.gettingStarted.onBoardingProcess.map((field) => {
+              return <li>{field}</li>
+            })}
+          </ol>
+        </div>
+        </div>
+        <SideBar xml={
+            <div>
+              <p> this is xml data </p>
+            </div>
+          } json={
+            <div>
+              <p> this is json data </p>
+            </div>
+          }
+        />
+        </div>
       </div>
     )
   }

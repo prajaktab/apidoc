@@ -1,55 +1,38 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   Table,
   TableBody,
   TableHeader,
   TableHeaderColumn,
   TableRow,
-  TableRowColumn,
+  TableRowColumn
 } from 'material-ui/Table';
-
-import Data from "../../../data";
-
-export class requestParametersPage extends Component {
-
+import SideBar from "../../../sideBar";
+import Data from "../../../../data";
+export class responseChecksumFormatPage extends Component {
   render() {
+    let alignmentLeft = {
+      paddingLeft: 20,
+      paddingTop: 20,
+      margin: 0
+    };
     return (
-      <div>
-      <Table>
-        <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-        <TableRow>
-          <TableHeaderColumn>Field Name</TableHeaderColumn>
-          <TableHeaderColumn>Data Type</TableHeaderColumn>
-          <TableHeaderColumn>Min Value</TableHeaderColumn>
-          <TableHeaderColumn>Max Value</TableHeaderColumn>
-          <TableHeaderColumn>Description</TableHeaderColumn>
-        </TableRow>
-      </TableHeader>
-      <TableBody displayRowCheckbox={false}>
-      {Data.webIntegration.refundApi.requestParameters.fieldName.map((field, index) => {
-        return (
-        <TableRow key={index}>
-        <TableRowColumn>
-          <div>{field.text}</div>
-          <b>{field.mandatory == 1 ? "Mandatory" : ""}</b>
-        </TableRowColumn>
-        <TableRowColumn>
-          {Data.webIntegration.refundApi.requestParameters.dataType[index]}
-        </TableRowColumn>
-        <TableRowColumn>
-          {Data.webIntegration.refundApi.requestParameters.minValue[index]}
-        </TableRowColumn>
-        <TableRowColumn>
-          {Data.webIntegration.refundApi.requestParameters.maxValue[index]}
-        </TableRowColumn>
-        <TableRowColumn>
-          {Data.webIntegration.refundApi.requestParameters.description[index]}
-        </TableRowColumn>
-        </TableRow>
-        )}
-      )};
-      </TableBody>
-      </Table>
+      <div className="main-content">
+      <div className="api-desc">
+      <div style={alignmentLeft}>
+        {Data.Apis.paymentApis.refundApi.responseChecksumFormat.tags.join(" | ")}
+      </div>
+      </div>
+      <SideBar xml={
+          <div>
+            <p> this is xml data </p>
+          </div>
+        } json={
+          <div>
+            <p> this is json data </p>
+          </div>
+        }
+      />
       </div>
     )
   }

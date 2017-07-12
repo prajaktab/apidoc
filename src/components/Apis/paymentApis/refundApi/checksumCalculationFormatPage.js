@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import SideBar from "../../../sideBar";
 import Data from "../../../../data";
-export class URLsPage extends Component {
+export class checksumCalculationFormatPage extends Component {
   render() {
     let alignmentLeft = {
       paddingLeft: 20,
@@ -10,12 +10,9 @@ export class URLsPage extends Component {
     };
     return (
       <div className="main-content">
-        <div className="api-desc">
+      <div className="api-desc">
       <div style={alignmentLeft}>
-        <b>Test URL
-        </b>{Data.Apis.nonPaymentApis.getrequeststatus.urls.testUrl}<br/>
-        <b>Production URL
-        </b>{Data.Apis.nonPaymentApis.getrequeststatus.urls.productionUrl}
+        {Data.Apis.paymentApis.refundApi.checksumCalculationFormat.tags.join(" | ")}
       </div>
       </div>
       <SideBar xml={
@@ -28,7 +25,7 @@ export class URLsPage extends Component {
           </div>
         }
       />
-    </div>
+      </div>
     )
   }
 }

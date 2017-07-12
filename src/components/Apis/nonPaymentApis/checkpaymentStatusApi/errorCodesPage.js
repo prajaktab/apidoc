@@ -1,44 +1,55 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   Table,
   TableBody,
   TableHeader,
   TableHeaderColumn,
   TableRow,
-  TableRowColumn,
+  TableRowColumn
 } from 'material-ui/Table';
-
+import SideBar from "../../../sideBar";
 import Data from "../../../../data"
-
 export class errorCodesPage extends Component {
-
   render() {
     return (
       <div>
-      <Table>
-        <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-        <TableRow>
-          <TableHeaderColumn>Code</TableHeaderColumn>
-          <TableHeaderColumn>Message</TableHeaderColumn>
-        </TableRow>
-      </TableHeader>
-      <TableBody displayRowCheckbox={false}>
-      {Data.webIntegration.paymentApis.purchaseApi.errorCodes.errorCode.map((text, index) => {
-        return (
-        <TableRow key={index}>
-        <TableRowColumn>
-          {text}
-        </TableRowColumn>
-        <TableRowColumn>
-          {Data.webIntegration.paymentApis.purchaseApi.errorCodes.message[index]}
-        </TableRowColumn>
-        </TableRow>
-        )}
-      )};
-      </TableBody>
-      </Table>
+      <div className="main-content">
+        <div className="api-desc">
+        <Table>
+          <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+            <TableRow>
+              <TableHeaderColumn>Code</TableHeaderColumn>
+              <TableHeaderColumn>Message</TableHeaderColumn>
+            </TableRow>
+          </TableHeader>
+          <TableBody displayRowCheckbox={false}>
+            {Data.Apis.nonPaymentApis.checkpaymentStatusApi.errorCodes.errorCode.map((text, index) => {
+              return (
+                <TableRow key={index}>
+                  <TableRowColumn>
+                    {text}
+                  </TableRowColumn>
+                  <TableRowColumn>
+                    {Data.Apis.nonPaymentApis.checkpaymentStatusApi.errorCodes.message[index]}
+                  </TableRowColumn>
+                </TableRow>
+              )
+            })};
+          </TableBody>
+        </Table>
+        </div>
+        <SideBar xml={
+            <div>
+              <p> this is xml data </p>
+            </div>
+          } json={
+            <div>
+              <p> this is json data </p>
+            </div>
+          }
+        />
+      </div>
       </div>
     )
-
   }
 }

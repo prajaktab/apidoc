@@ -1,7 +1,15 @@
 import React, {Component} from 'react';
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn
+} from 'material-ui/Table';
 import SideBar from "../../../sideBar";
 import Data from "../../../../data";
-export class URLsPage extends Component {
+export class responseChecksumFormatPage extends Component {
   render() {
     let alignmentLeft = {
       paddingLeft: 20,
@@ -12,10 +20,7 @@ export class URLsPage extends Component {
       <div className="main-content">
         <div className="api-desc">
       <div style={alignmentLeft}>
-        <b>Test URL
-        </b>{Data.Apis.nonPaymentApis.getrequeststatus.urls.testUrl}<br/>
-        <b>Production URL
-        </b>{Data.Apis.nonPaymentApis.getrequeststatus.urls.productionUrl}
+        {Data.Apis.nonPaymentApis.statusquery.responseChecksumFormat.desc}
       </div>
       </div>
       <SideBar xml={

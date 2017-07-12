@@ -1,14 +1,34 @@
-import React, { Component } from 'react';
-
+import React, {Component} from 'react';
+import SideBar from "../../../sideBar";
 import Data from "../../../../data";
-
 export class URLsPage extends Component {
   render() {
+    let alignmentLeft = {
+      paddingLeft: 20,
+      paddingTop: 20,
+      margin: 0
+    };
     return (
-      <div>
-          <b>Test URL </b>{Data.webIntegration.paymentApis.purchaseApi.urls.testUrl}<br/>
-          <b>Production URL </b>{Data.webIntegration.paymentApis.purchaseApi.urls.productionUrl}
+      <div className="main-content">
+        <div className="api-desc">
+      <div style={alignmentLeft}>
+        <b>Test URL
+        </b>{Data.Apis.nonPaymentApis.fetchtransactionaldetails.urls.testUrl}<br/>
+        <b>Production URL
+        </b>{Data.Apis.nonPaymentApis.fetchtransactionaldetails.urls.productionUrl}
       </div>
+      </div>
+      <SideBar xml={
+          <div>
+            <p> this is xml data </p>
+          </div>
+        } json={
+          <div>
+            <p> this is json data </p>
+          </div>
+        }
+      />
+    </div>
     )
   }
 }

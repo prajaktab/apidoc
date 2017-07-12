@@ -1,22 +1,26 @@
 import React, {Component} from 'react';
 import {AppHeader} from "./header";
-import {Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route, Redirect, Switch} from "react-router-dom";
+import {overviewPage} from "./gettingStarted/overviewPage";
+import {onBoardingProcessPage} from "./gettingStarted/onBoardingProcessPage";
+import {howDoesThePaymentProcessWorkPage} from "./gettingStarted/howDoesThePaymentProcessWorkPage";
+import {NotFoundPage} from "./NotFoundPage";
 export class gettingStarted extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      appHeader: "overview"
+      appHeader: "Getting Started"
     }
   }
   render() {
-    let alignmentLeft = {
-      paddingLeft: 20,
-      paddingTop: 20
-    };
     return (
       <div>
-        <AppHeader exact title={this.state.appHeader}/>
-        <div style={alignmentLeft}>gettingStarted</div>
+        <Switch>
+          <Route exact path={`${this.props.match.url}/overviewPage`} component={overviewPage}/>
+          <Route path={`${this.props.match.url}/onBoardingProcess`} component={onBoardingProcessPage}/>
+          <Route path={`${this.props.match.url}/howDoesThePaymentProcessWork`} component={howDoesThePaymentProcessWorkPage}/>
+          <Route component={NotFoundPage}/>
+        </Switch>
       </div>
     )
   }
